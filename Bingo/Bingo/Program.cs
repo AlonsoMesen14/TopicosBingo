@@ -176,16 +176,79 @@ namespace Bingo
 
         }
 
-        public static bool VerificarEsquina(int x, int y)
+        public static bool VerificarCarton(int x, int y, int type)
         {
-            if (Carton[x, y].Equals(Carton[1, 0])
-               || Carton[x, y].Equals(Carton[1, 4])
-               || Carton[x, y].Equals(Carton[5, 0])
-               || Carton[x, y].Equals(Carton[5, 4]))
+            switch (type)
             {
-                return true;
+                //4 Esquinas
+                case 1:
+                    if (Carton[x, y].Equals(Carton[1, 0])
+                        || Carton[x, y].Equals(Carton[1, 4])
+                        || Carton[x, y].Equals(Carton[5, 0])
+                        || Carton[x, y].Equals(Carton[5, 4]))
+                    {
+                        return true;
+                    }
+                    return false;
+                case 2:
+                    // X
+                    if (Carton[x, y].Equals(Carton[1, 0])
+                         || Carton[x, y].Equals(Carton[2, 1])
+                         || Carton[x, y].Equals(Carton[4, 3])
+                         || Carton[x, y].Equals(Carton[5, 4])
+                         || Carton[x, y].Equals(Carton[1, 4])
+                         || Carton[x, y].Equals(Carton[2, 3])
+                         || Carton[x, y].Equals(Carton[4, 1])
+                         || Carton[x, y].Equals(Carton[5, 0]))
+                    {
+                        return true;
+                    }
+                    return false;
+
+                case 3:
+                    //H
+                    if (Carton[x, y].Equals(Carton[1, 0])
+                        || Carton[x, y].Equals(Carton[2, 0])
+                        || Carton[x, y].Equals(Carton[3, 0])
+                        || Carton[x, y].Equals(Carton[4, 0])
+                        || Carton[x, y].Equals(Carton[5, 0])
+                        || Carton[x, y].Equals(Carton[3, 1])
+                        || Carton[x, y].Equals(Carton[3, 3])
+                        || Carton[x, y].Equals(Carton[3, 4])
+                        || Carton[x, y].Equals(Carton[1, 4])
+                        || Carton[x, y].Equals(Carton[2, 4])
+                        || Carton[x, y].Equals(Carton[4, 4])
+                        || Carton[x, y].Equals(Carton[5, 4]))
+                    {
+                        return true;
+                    }
+                    return false;
+
+                case 4:
+                    //O
+                    if (Carton[x, y].Equals(Carton[2, 0])
+                        || Carton[x, y].Equals(Carton[3, 0])
+                        || Carton[x, y].Equals(Carton[4, 0])
+                        || Carton[x, y].Equals(Carton[5, 1])
+                        || Carton[x, y].Equals(Carton[5, 2])
+                        || Carton[x, y].Equals(Carton[5, 3])
+                        || Carton[x, y].Equals(Carton[1, 1])
+                        || Carton[x, y].Equals(Carton[1, 2])
+                        || Carton[x, y].Equals(Carton[1, 3])
+                        || Carton[x, y].Equals(Carton[2, 4])
+                        || Carton[x, y].Equals(Carton[3, 4])
+                        || Carton[x, y].Equals(Carton[4, 4]))
+                    {
+                        return true;
+                    }
+                    return false;
+
+            
+                default:
+                    return false;
             }
-            return false;
+
+            
         }
 
         public static void ValidarCarton4Esquinas(object carton, ArrayList N)
@@ -195,7 +258,7 @@ namespace Bingo
                 for (int c = 0; c < Carton.GetLength(1); c++)
                 {
                     int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && VerificarEsquina(f, c) == true)
+                    if (YaSalio(d, N) == true && VerificarCarton(f, c,2) == true)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
@@ -209,17 +272,6 @@ namespace Bingo
             }
         }
 
-        public static bool VerificarX(int x, int y)
-        {
-            if (Carton[x, y].Equals(Carton[1, 0])
-               || Carton[x, y].Equals(Carton[2, 1])
-               || Carton[x, y].Equals(Carton[4, 3])
-               || Carton[x, y].Equals(Carton[5, 4]))
-            {
-                return true;
-            }
-            return false;
-        }
 
         public static void ValidarCartonX(object carton, ArrayList N)
         {
@@ -228,7 +280,7 @@ namespace Bingo
                 for (int c = 0; c < Carton.GetLength(1); c++)
                 {
                     int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && VerificarX(f, c) == true)
+                    if (YaSalio(d, N) == true && VerificarCarton(f, c,1) == true)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
