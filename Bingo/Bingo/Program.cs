@@ -19,10 +19,14 @@ namespace Bingo
             {
                 for (int c = 0; c < Carton.GetLength(1); c++)
                 {
-                    Console.Write("  " + Carton[f, c] + "  ");
+                    //Console.Write("  " + Carton[f, c] + "  ");
+                    Console.Write(string.Format("{0} ", Carton[f, c]));
                 }
-                Console.WriteLine();
+               
+                Console.Write(Environment.NewLine + Environment.NewLine);
+               //Console.WriteLine();
             }
+            
         }
 
         /// <summary>
@@ -113,6 +117,7 @@ namespace Bingo
             }
             return false;
         }
+
         /// <summary>
         /// Este metodo elige el nuevo numero y determina si ya salio e imprime la posicion en la que se encuentra
         /// </summary>
@@ -176,6 +181,13 @@ namespace Bingo
 
         }
 
+        /// <summary>
+        /// metodo para verificar la posicion de los numeros esten correctos 
+        /// </summary>
+        /// <param name="x">Posicion en el Carton</param>
+        /// <param name="y">Posicion en el Carton</param>
+        /// <param name="type">Tipo del modo de juego</param>
+        /// <returns>retorna true si los numeros estan en la posicion correcta </returns>
         public static bool VerificarCarton(int x, int y, int type)
         {
             switch (type)
@@ -266,9 +278,9 @@ namespace Bingo
                     {
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    Console.Write("  " + Carton[f, c] + "  ");
+                    Console.Write(String.Format("{0}\t", Carton[f, c]));
                 }
-                Console.WriteLine();
+                Console.Write(Environment.NewLine + Environment.NewLine);
             }
         }
 
@@ -288,9 +300,9 @@ namespace Bingo
                     {
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    Console.Write("  " + Carton[f, c] + "  ");
+                    Console.Write(String.Format("{0}\t", Carton[f, c]));
                 }
-                Console.WriteLine();
+                Console.Write(Environment.NewLine + Environment.NewLine);
             }
         }
 
@@ -309,9 +321,9 @@ namespace Bingo
                     {
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    Console.Write("  " + Carton[f, c] + "  ");
+                    Console.Write(String.Format("{0}\t", Carton[f, c]));
                 }
-                Console.WriteLine();
+                Console.Write(Environment.NewLine + Environment.NewLine);
             }
         }
         public static void ValidarCartonO(object carton, ArrayList N)
@@ -329,9 +341,9 @@ namespace Bingo
                     {
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    Console.Write("  " + Carton[f, c] + "  ");
+                    Console.Write(String.Format("{0}\t", Carton[f, c]));
                 }
-                Console.WriteLine();
+                Console.Write(Environment.NewLine + Environment.NewLine);
             }
         }
 
@@ -405,7 +417,7 @@ namespace Bingo
             {
                 NumeroSale();
             }
-            ValidarCartonH(Carton, BINGO);
+            ValidarCartonX(Carton, BINGO);
             Console.ReadKey();
         }
         public override string ToString()
