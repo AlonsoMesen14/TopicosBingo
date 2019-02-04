@@ -176,6 +176,18 @@ namespace Bingo
 
         }
 
+        public static bool VerificarEsquina(int x, int y)
+        {
+            if (Carton[x, y].Equals(Carton[1, 0])
+               || Carton[x, y].Equals(Carton[1, 4])
+               || Carton[x, y].Equals(Carton[5, 0])
+               || Carton[x, y].Equals(Carton[5, 4]))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public static void ValidarCarton4Esquinas(object carton, ArrayList N)
         {
             for (int f = 0; f < Carton.GetLength(0); f++)
@@ -183,7 +195,7 @@ namespace Bingo
                 for (int c = 0; c < Carton.GetLength(1); c++)
                 {
                     int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && Carton[f, c].Equals(Carton[1, 0]))
+                    if (YaSalio(d, N) == true && VerificarEsquina(f, c) == true)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
@@ -196,6 +208,41 @@ namespace Bingo
                 Console.WriteLine();
             }
         }
+
+        public static bool VerificarX(int x, int y)
+        {
+            if (Carton[x, y].Equals(Carton[1, 0])
+               || Carton[x, y].Equals(Carton[2, 1])
+               || Carton[x, y].Equals(Carton[4, 3])
+               || Carton[x, y].Equals(Carton[5, 4]))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static void ValidarCartonX(object carton, ArrayList N)
+        {
+            for (int f = 0; f < Carton.GetLength(0); f++)
+            {
+                for (int c = 0; c < Carton.GetLength(1); c++)
+                {
+                    int d = Carton[f, c].GetHashCode();
+                    if (YaSalio(d, N) == true && VerificarX(f, c) == true)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    Console.Write("  " + Carton[f, c] + "  ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+
 
 
 
