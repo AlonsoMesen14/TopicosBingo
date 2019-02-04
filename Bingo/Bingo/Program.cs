@@ -258,7 +258,7 @@ namespace Bingo
                 for (int c = 0; c < Carton.GetLength(1); c++)
                 {
                     int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && VerificarCarton(f, c,2) == true)
+                    if (YaSalio(d, N) == true && VerificarCarton(f, c, 1) == true)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
@@ -280,7 +280,7 @@ namespace Bingo
                 for (int c = 0; c < Carton.GetLength(1); c++)
                 {
                     int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && VerificarCarton(f, c,1) == true)
+                    if (YaSalio(d, N) == true && VerificarCarton(f, c, 2) == true)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
@@ -295,59 +295,67 @@ namespace Bingo
         }
 
 
-
-
-
-
+        public static void TextoMenu()
+        {
+            Console.WriteLine("Bienvenido al BINGO!");
+            Console.WriteLine("1.Juego Clasico (Carton LLeno)");
+            Console.WriteLine("2.Juego 4 Esquinas");
+            Console.WriteLine("3.Juego X");
+            Console.WriteLine("4.Juego H");
+            Console.WriteLine("4.Juego O");
+            Console.WriteLine("Introduzca un Numero:");
+        }
 
         public static void Menu()
         {
             int menu = 0;
-
-            switch (menu)
+            Console.WriteLine("Introduzca un Numero");
+            menu = Convert.ToInt32(Console.ReadLine());
+            while (menu != 7)
             {
-                case 1:
-                    CrearCarton();
-                    Imprimir();
-                    for (int i = 0; i < 1; i++)
-                    {
-                        NumeroSale();
-                    }
-                    ValidarCartonClasico(Carton, BINGO);
-                    Console.ReadKey();
-                    break;
+                switch (menu)
+                {
+                    case 1:
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i < 1; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCartonClasico(Carton, BINGO);
+                        Console.ReadKey();
+                        break;
 
-                case 2:
+                    case 2:
 
-                    break;
+                        break;
 
-                case 3:
+                    case 3:
 
-                    break;
+                        break;
 
-                case 4:
+                    case 4:
 
-                    break;
+                        break;
 
-                case 5:
+                    case 5:
 
-                    break;
+                        break;
 
-                case 6:
+                    case 6:
 
-                    break;
+                        break;
 
-                case 7:
+                    case 7:
 
-                    break;
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
+
             }
-
-
         }
-
         static void Main(string[] args)
         {
             CrearCarton();
@@ -356,7 +364,7 @@ namespace Bingo
             {
                 NumeroSale();
             }
-            ValidarCartonClasico(Carton, BINGO);
+            ValidarCartonX(Carton, BINGO);
             Console.ReadKey();
         }
         public override string ToString()
