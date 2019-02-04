@@ -355,23 +355,25 @@ namespace Bingo
             Console.WriteLine("2.Juego 4 Esquinas");
             Console.WriteLine("3.Juego X");
             Console.WriteLine("4.Juego H");
-            Console.WriteLine("4.Juego O");
+            Console.WriteLine("5.Juego O");
             Console.WriteLine("Introduzca un Numero:");
         }
 
         public static void Menu()
         {
             int menu = 0;
-            Console.WriteLine("Introduzca un Numero");
-            menu = Convert.ToInt32(Console.ReadLine());
-            while (menu != 7)
+            do
             {
+                TextoMenu();
+                Console.WriteLine("Introduzca un Numero");
+                menu = Convert.ToInt32(Console.ReadLine());
                 switch (menu)
-                {
+                { 
+                    
                     case 1:
                         CrearCarton();
                         Imprimir();
-                        for (int i = 0; i < 1; i++)
+                        for (int i = 0; i < 70; i++)
                         {
                             NumeroSale();
                         }
@@ -380,7 +382,14 @@ namespace Bingo
                         break;
 
                     case 2:
-
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i < 70; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCartonX(Carton, BINGO);
+                        Console.ReadKey();
                         break;
 
                     case 3:
@@ -407,18 +416,11 @@ namespace Bingo
                         break;
                 }
 
-            }
+            } while (menu != 7);
         }
         static void Main(string[] args)
         {
-            CrearCarton();
-            Imprimir();
-            for (int i = 0; i < 70; i++)
-            {
-                NumeroSale();
-            }
-            ValidarCartonX(Carton, BINGO);
-            Console.ReadKey();
+            Menu();
         }
         public override string ToString()
         {
