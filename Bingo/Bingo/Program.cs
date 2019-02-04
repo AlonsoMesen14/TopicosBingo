@@ -294,6 +294,47 @@ namespace Bingo
             }
         }
 
+        public static void ValidarCartonH(object carton, ArrayList N)
+        {
+            for (int f = 0; f < Carton.GetLength(0); f++)
+            {
+                for (int c = 0; c < Carton.GetLength(1); c++)
+                {
+                    int d = Carton[f, c].GetHashCode();
+                    if (YaSalio(d, N) == true && VerificarCarton(f, c, 3) == true)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    Console.Write("  " + Carton[f, c] + "  ");
+                }
+                Console.WriteLine();
+            }
+        }
+        public static void ValidarCartonO(object carton, ArrayList N)
+        {
+            for (int f = 0; f < Carton.GetLength(0); f++)
+            {
+                for (int c = 0; c < Carton.GetLength(1); c++)
+                {
+                    int d = Carton[f, c].GetHashCode();
+                    if (YaSalio(d, N) == true && VerificarCarton(f, c, 4) == true)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    Console.Write("  " + Carton[f, c] + "  ");
+                }
+                Console.WriteLine();
+            }
+        }
+
 
         public static void TextoMenu()
         {
@@ -364,7 +405,7 @@ namespace Bingo
             {
                 NumeroSale();
             }
-            ValidarCartonX(Carton, BINGO);
+            ValidarCartonH(Carton, BINGO);
             Console.ReadKey();
         }
         public override string ToString()
