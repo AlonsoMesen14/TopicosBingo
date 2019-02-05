@@ -263,36 +263,53 @@ namespace Bingo
             
         }
 
-        public static void ValidarCarton4Esquinas(object carton, ArrayList N)
+        public static bool MenuCarton(int x, int y, int opcion)
         {
-            for (int f = 0; f < Carton.GetLength(0); f++)
+
+
+            switch (opcion)
             {
-                for (int c = 0; c < Carton.GetLength(1); c++)
-                {
-                    int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && VerificarCarton(f, c, 1) == true)
+                case 1:
+                    if (VerificarCarton(x, y, 1) == true)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        return true;
                     }
-                    else
+                    return false;
+
+                case 2:
+                    if (VerificarCarton(x, y, 2) == true)
                     {
-                        Console.ForegroundColor = ConsoleColor.White;
+                        return true;
                     }
-                    Console.Write(String.Format("{0}\t", Carton[f, c]));
-                }
-                Console.Write(Environment.NewLine + Environment.NewLine);
+                    return false;
+
+                case 3:
+                    if (VerificarCarton(x, y, 3) == true)
+                    {
+                        return true;
+                    }
+                    return false;
+
+                case 4:
+                    if (VerificarCarton(x, y, 4) == true)
+                    {
+                        return true;
+                    }
+                    return false;
+
+                default:
+                    return false;
             }
         }
 
-
-        public static void ValidarCartonX(object carton, ArrayList N)
+        public static void ValidarCarton(object carton, ArrayList N, int Tipo)
         {
             for (int f = 0; f < Carton.GetLength(0); f++)
             {
                 for (int c = 0; c < Carton.GetLength(1); c++)
                 {
                     int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && VerificarCarton(f, c, 2) == true)
+                    if (YaSalio(d, N) == true && MenuCarton(f, c, Tipo) == true)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
@@ -300,50 +317,9 @@ namespace Bingo
                     {
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    Console.Write(String.Format("{0}\t", Carton[f, c]));
+                    Console.Write("  " + Carton[f, c] + "  ");
                 }
-                Console.Write(Environment.NewLine + Environment.NewLine);
-            }
-        }
-
-        public static void ValidarCartonH(object carton, ArrayList N)
-        {
-            for (int f = 0; f < Carton.GetLength(0); f++)
-            {
-                for (int c = 0; c < Carton.GetLength(1); c++)
-                {
-                    int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && VerificarCarton(f, c, 3) == true)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-                    Console.Write(String.Format("{0}\t", Carton[f, c]));
-                }
-                Console.Write(Environment.NewLine + Environment.NewLine);
-            }
-        }
-        public static void ValidarCartonO(object carton, ArrayList N)
-        {
-            for (int f = 0; f < Carton.GetLength(0); f++)
-            {
-                for (int c = 0; c < Carton.GetLength(1); c++)
-                {
-                    int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && VerificarCarton(f, c, 4) == true)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-                    Console.Write(String.Format("{0}\t", Carton[f, c]));
-                }
-                Console.Write(Environment.NewLine + Environment.NewLine);
+                Console.WriteLine();
             }
         }
 
@@ -388,24 +364,45 @@ namespace Bingo
                         {
                             NumeroSale();
                         }
-                        ValidarCartonX(Carton, BINGO);
+                        ValidarCarton(Carton, BINGO, 1);
                         Console.ReadKey();
                         break;
 
                     case 3:
-
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i < 70; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCarton(Carton, BINGO, 2);
+                        Console.ReadKey();
                         break;
 
                     case 4:
-
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i < 70; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCarton(Carton, BINGO, 3);
+                        Console.ReadKey();
                         break;
 
                     case 5:
-
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i < 70; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCarton(Carton, BINGO, 4);
+                        Console.ReadKey();
                         break;
 
                     case 6:
-
+                        
                         break;
 
                     case 7:
