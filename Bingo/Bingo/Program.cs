@@ -19,12 +19,12 @@ namespace Bingo
             {
                 for (int c = 0; c < Carton.GetLength(1); c++)
                 {
-                    //Console.Write("  " + Carton[f, c] + "  ");
-                    Console.Write(string.Format("{0} ", Carton[f, c]));
+                    
+                    Console.Write(String.Format("{0}\t", Carton[f, c]));
                 }
                
                 Console.Write(Environment.NewLine + Environment.NewLine);
-               //Console.WriteLine();
+               
             }
             
         }
@@ -317,15 +317,19 @@ namespace Bingo
                     {
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    Console.Write("  " + Carton[f, c] + "  ");
+                    Console.Write(String.Format("{0}\t", Carton[f, c]));
                 }
-                Console.WriteLine();
+
+                Console.Write(Environment.NewLine + Environment.NewLine);
+               
             }
         }
+        
 
 
         public static void TextoMenu()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Bienvenido al BINGO!");
             Console.WriteLine("1.Juego Clasico (Carton LLeno)");
             Console.WriteLine("2.Juego 4 Esquinas");
@@ -337,10 +341,12 @@ namespace Bingo
 
         public static void Menu()
         {
+            
             int menu = 0;
             do
             {
                 TextoMenu();
+                BINGO.Clear();
                 Console.WriteLine("Introduzca un Numero");
                 menu = Convert.ToInt32(Console.ReadLine());
                 switch (menu)
