@@ -156,15 +156,14 @@ namespace Bingo
         {
 
 
-            for (int i = 0; i < N.Count; i++)
-            {
+           
                 for (int f = 0; f < Carton.GetLength(0); f++)
                 {
                     for (int c = 0; c < Carton.GetLength(1); c++)
 
                     {
-
-                        if (N[i].Equals(Carton[f, c]))
+                        int dato = Carton[f, c].GetHashCode();
+                        if (YaSalio(dato, N))
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
                         }
@@ -177,7 +176,7 @@ namespace Bingo
                     Console.WriteLine();
                 }
 
-            }
+           
 
         }
 
@@ -349,7 +348,7 @@ namespace Bingo
                     case 1:
                         CrearCarton();
                         Imprimir();
-                        for (int i = 0; i < 70; i++)
+                        for (int i = 0; i < 30; i++)
                         {
                             NumeroSale();
                         }
