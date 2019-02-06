@@ -11,7 +11,7 @@ namespace Bingo
     { //Varibles Estaticas
         static ArrayList BINGO = new ArrayList();//Arraylist que contiene los numeros que han salido
         static List<Persona> Players= new List<Persona>();//Lista que contiene Personas y cartones
-        
+        WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
         static object[,] Carton = new object[6, 5];
 
         public static void CrearPersona(string Nombre) {
@@ -62,7 +62,6 @@ namespace Bingo
                 CrearPersona(Nombre);
             }
 
-         
         }
         public static bool NombreDiferente(string Nombre) {
 
@@ -85,8 +84,6 @@ namespace Bingo
             }
 
         }
-
-     
 
         /// <summary>
         /// YaSalio
@@ -242,11 +239,7 @@ namespace Bingo
                     return false;
             }
         }
-        public static void NuevosModos(){
-
-
-
-        }
+ 
         public static bool MenuCarton(int x, int y, int opcion)
         {
             switch (opcion)
@@ -306,7 +299,6 @@ namespace Bingo
                
             }
         }
-        
 
         public static void TextoMenu()
         {
@@ -319,121 +311,89 @@ namespace Bingo
             Console.WriteLine("5.Juego O");
             Console.WriteLine("Introduzca un Numero:");
         }
-      /* public static void Menu()
-        {
-            
-            int menu = 0;
-            do
-            {
-                TextoMenu();
-                BINGO.Clear();
-                Console.WriteLine("Introduzca un Numero");
-                menu = Convert.ToInt32(Console.ReadLine());
-                switch (menu)
-                { 
-                    
-                    case 1:
-                        CrearCarton();
-                        Imprimir();
-                        for (int i = 0; i <= 30; i++)
-                        {
-                            NumeroSale();
-                        }
-                        ValidarCartonClasico(Carton, BINGO);
-                        Console.ReadKey();
-                        break;
+        //public static void Menu()
+        //{
 
-                    case 2:
-                        CrearCarton();
-                        Imprimir();
-                        for (int i = 0; i < 70; i++)
-                        {
-                            NumeroSale();
-                        }
-                        ValidarCarton(Carton, BINGO, 1);
-                        Console.ReadKey();
-                        break;
+        //    int menu = 0;
+        //    do
+        //    {
+        //        TextoMenu();
+        //        BINGO.Clear();
+        //        Console.WriteLine("Introduzca un Numero");
+        //        menu = Convert.ToInt32(Console.ReadLine());
+        //        switch (menu)
+        //        { 
 
-                    case 3:
-                        CrearCarton();
-                        Imprimir();
-                        for (int i = 0; i < 70; i++)
-                        {
-                            NumeroSale();
-                        }
-                        ValidarCarton(Carton, BINGO, 2);
-                        Console.ReadKey();
-                        break;
+        //            case 1:
+        //                CrearCarton();
+        //                Imprimir();
+        //                for (int i = 0; i <= 30; i++)
+        //                {
+        //                    NumeroSale();
+        //                }
+        //                ValidarCartonClasico(Carton, BINGO);
+        //                Console.ReadKey();
+        //                break;
 
-                    case 4:
-                        CrearCarton();
-                        Imprimir();
-                        for (int i = 0; i < 70; i++)
-                        {
-                            NumeroSale();
-                        }
-                        ValidarCarton(Carton, BINGO, 3);
-                        Console.ReadKey();
-                        break;
+        //            case 2:
+        //                CrearCarton();
+        //                Imprimir();
+        //                for (int i = 0; i < 70; i++)
+        //                {
+        //                    NumeroSale();
+        //                }
+        //                ValidarCarton(Carton, BINGO, 1);
+        //                Console.ReadKey();
+        //                break;
 
-                    case 5:
-                        CrearCarton();
-                        Imprimir();
-                        for (int i = 0; i < 70; i++)
-                        {
-                            NumeroSale();
-                        }
-                        ValidarCarton(Carton, BINGO, 4);
-                        Console.ReadKey();
-                        break;
+        //            case 3:
+        //                CrearCarton();
+        //                Imprimir();
+        //                for (int i = 0; i < 70; i++)
+        //                {
+        //                    NumeroSale();
+        //                }
+        //                ValidarCarton(Carton, BINGO, 2);
+        //                Console.ReadKey();
+        //                break;
 
-                    case 6:
-                        
-                        break;
+        //            case 4:
+        //                CrearCarton();
+        //                Imprimir();
+        //                for (int i = 0; i < 70; i++)
+        //                {
+        //                    NumeroSale();
+        //                }
+        //                ValidarCarton(Carton, BINGO, 3);
+        //                Console.ReadKey();
+        //                break;
 
-                    case 7:
+        //            case 5:
+        //                CrearCarton();
+        //                Imprimir();
+        //                for (int i = 0; i < 70; i++)
+        //                {
+        //                    NumeroSale();
+        //                }
+        //                ValidarCarton(Carton, BINGO, 4);
+        //                Console.ReadKey();
+        //                break;
 
-                        break;
+        //            case 6:
 
-                    default:
-                        break;
-                }
+        //                break;
 
-            } while (menu != 7);
-        }
-        */
+        //            case 7:
 
-        public static bool CartonGanador(object Carton) {
+        //                break;
 
-            if (true)
-            {
+        //            default:
+        //                break;
+        //        }
 
-            }
-            else {
+        //    } while (menu != 7);
+        //}
 
-
-            }
-            return false;
-        }
-        public static int HayGanador(ArrayList Personas) {
-            for (int i = 0; i < 10; i++)//array de usuarios
-            {
-                if (CuatroEsquinas(Personas[i])==true)//Personas[i].Carton
-                {                                   //Personas[i].Nombre
-                    Console.WriteLine("El usuario" + Personas[i] + "Ha ganado");
-
-                }
-            }
-
-            return 7;
-        }
-        public static bool CuatroEsquinas(object Carton) {
-
-
-
-            return false;
-        }
-       
         static void Main(string[] args)
         {
             Jugadores();
