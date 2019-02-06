@@ -8,11 +8,38 @@ using System.Collections;
 namespace Bingo
 {
     class Program
-    {
-        //Varibles Estaticas
+    { //Varibles Estaticas
         static ArrayList BINGO = new ArrayList();//Arraylist que contiene los numeros que han salido
-
+        static List<Persona> Players= new List<Persona>();//Lista que contiene Personas y cartones
         static object[,] Carton = new object[6, 5];
+
+        public static void CrearPersona(string Nombre) {
+
+            Console.WriteLine("Digite la cantida de cartones que desea:"+Nombre);
+            string CantidadDeCartones = Console.ReadLine();
+            List<Carton> _cartones = new List<Carton>();
+            Persona nuevo = new Persona(Nombre, _cartones);
+            int cantCartones = Int32.Parse(CantidadDeCartones);
+            for (int i = 0; i <cantCartones; i++)
+            {
+                _cartones.Add(nuevo.GetCrearCs());
+            }
+            Players.Add(nuevo);
+        }
+        public static void Jugadores() {
+            Console.WriteLine("Digite la cantidad de usuarios:");
+            string CantidadDeJugadores = Console.ReadLine();
+            int cantPlayer = Int32.Parse(CantidadDeJugadores);
+            for (int i = 0; i <cantPlayer; i++)
+            {
+                Console.WriteLine("Digite el Nombre de Usuario:");
+                string Nombre = Console.ReadLine();
+                CrearPersona(Nombre);
+            }
+
+
+        }
+       
         public static void Imprimir()
         {
             for (int f = 0; f < Carton.GetLength(0); f++)
@@ -483,7 +510,8 @@ namespace Bingo
 
         static void Main(string[] args)
         {
-            Menu();
+            Jugadores();
+            //Menu();
         }
         public override string ToString()
         {
