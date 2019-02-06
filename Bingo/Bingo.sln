@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo", "Bingo\Bingo.csproj", "{C799E7D0-C418-47FD-807C-D8E1040D8F91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfBingo", "WcfBingo\WcfBingo.csproj", "{5007547D-E413-441F-9200-2CDBCF8B6FC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C799E7D0-C418-47FD-807C-D8E1040D8F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C799E7D0-C418-47FD-807C-D8E1040D8F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C799E7D0-C418-47FD-807C-D8E1040D8F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5007547D-E413-441F-9200-2CDBCF8B6FC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5007547D-E413-441F-9200-2CDBCF8B6FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5007547D-E413-441F-9200-2CDBCF8B6FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5007547D-E413-441F-9200-2CDBCF8B6FC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
