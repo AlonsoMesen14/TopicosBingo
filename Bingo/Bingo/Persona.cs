@@ -89,8 +89,19 @@ namespace Bingo
             Carton Cartoncito = new Carton(false, Cart);
             return Cartoncito;
         }
-        
+
+
+        public void Imprimir()
+        {
+            for (int i = 0; i < _cartones.Count; i++)
+            {
+                _cartones[i].Imprimir();
+            }
+        }
+
     }
+
+    
 
    
 }

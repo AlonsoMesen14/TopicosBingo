@@ -21,23 +21,23 @@ namespace Bingo
                 Console.WriteLine("Digite la cantida de cartones que desea:" + Nombre);
                 string CantidadDeCartones = Console.ReadLine();
                 cantCartones = System.Convert.ToInt32(CantidadDeCartones);
-            } while (cantCartones>0);
+            } while (cantCartones<0);
             
             List<Carton> _cartones = new List<Carton>();
             Persona nuevo = new Persona(Nombre, _cartones);
-          
-            //for (int i = 0; i <cantCartones; i++)
-            //{
-            //    _cartones.Add(nuevo.GetCrearCs());
-            //}
-            //for (int i=0; i<nuevo.cartones.Count;i++)
+            
+            for (int i = 0; i < cantCartones; i++)
+            {
+                _cartones.Add(nuevo.GetCrearCs());
+            }
+            //for (int i = 0; i < nuevo.cartones.Count; i++)
             //{
             //    //nuevo.cartones[i].Imprimir();
             //    Console.WriteLine(" ");
             //}
             //string Cantidad = Console.ReadLine();
-            //Players.Add(nuevo);
-            
+            Players.Add(nuevo);
+            nuevo.Imprimir();
         }
         public static void Jugadores() {
             Console.WriteLine("Digite la cantidad de usuarios:");
