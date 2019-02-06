@@ -22,22 +22,19 @@ namespace Bingo
                 string CantidadDeCartones = Console.ReadLine();
                 cantCartones = System.Convert.ToInt32(CantidadDeCartones);
             } while (cantCartones<0);
-            
+
             List<Carton> _cartones = new List<Carton>();
             Persona nuevo = new Persona(Nombre, _cartones);
             
             for (int i = 0; i < cantCartones; i++)
             {
-                _cartones.Add(nuevo.GetCrearCs());
+                //_cartones.Add(nuevo.GetCrearCs());
+                nuevo.GetCrearCs();
             }
-            //for (int i = 0; i < nuevo.cartones.Count; i++)
-            //{
-            //    //nuevo.cartones[i].Imprimir();
-            //    Console.WriteLine(" ");
-            //}
-            //string Cantidad = Console.ReadLine();
+     
             Players.Add(nuevo);
             nuevo.Imprimir();
+            string CantidadDeJugadores = Console.ReadLine();
         }
         public static void Jugadores() {
             Console.WriteLine("Digite la cantidad de usuarios:");
@@ -76,16 +73,10 @@ namespace Bingo
         }
         public static void Imprimir()
         {
-            for (int f = 0; f < Carton.GetLength(0); f++)
+            foreach (var item in Players)
             {
-                for (int c = 0; c < Carton.GetLength(1); c++)
-                {
-
-                    Console.Write(String.Format("{0}\t", Carton[f, c]));
-                }
-
-                Console.Write(Environment.NewLine + Environment.NewLine);
-
+                Console.WriteLine("Cartones de: " + item.NombreUsuario());
+                item.Imprimir();
             }
 
         }
@@ -545,6 +536,8 @@ namespace Bingo
         static void Main(string[] args)
         {
             Jugadores();
+            //Imprimir();
+            Console.ReadLine();
             //Menu();
         }
         public override string ToString()

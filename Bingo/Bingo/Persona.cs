@@ -87,20 +87,27 @@ namespace Bingo
             }
             Cart[3, 2] = ' ';
             Carton Cartoncito = new Carton(false, Cart);
+            this._cartones.Add(Cartoncito);
             return Cartoncito;
         }
 
 
         public void Imprimir()
         {
-            for (int i = 0; i < _cartones.Count; i++)
+            for (int i = 0; i < this._cartones.Count; i++)
             {
-                _cartones[i].Imprimir();
+                this._cartones[i].Imprimir();
             }
+           
+        }
+
+
+        public string NombreUsuario() {
+            return this.Name;
         }
 
     }
-
+    
     
 
    
