@@ -9,6 +9,7 @@ namespace Bingo
 {
     class Validaciones
     {
+        static bool Ganador = false;
         WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
         public void ValidacionCartonLLeno()
         {
@@ -19,7 +20,7 @@ namespace Bingo
         {
 
         }
-
+        //este peerrrrrooooooooooooooooooooooo
         public static void Revision(int Tipo) {
             for (int i = 0; i < Program.Players.Count; i++)
             {
@@ -28,7 +29,10 @@ namespace Bingo
                     LlenarRevision(Tipo, Program.Players[i], j);
                 }
             }
-
+            if (Ganador==false)
+            {
+                Console.WriteLine("No hubo ganadores");
+            }
 
         }
 
@@ -36,8 +40,6 @@ namespace Bingo
 
         public static void LlenarRevision(int tipo, Persona y, int posicion)
         {
-
-            
             ArrayList numerosTiene = new ArrayList();
             object [,]carton = y.cartones[posicion].getCartonActual();
             switch (tipo)
@@ -99,13 +101,12 @@ namespace Bingo
             }
             numerosTiene.ToString();
             if (YaGano(numerosTiene) == true){
-                Console.WriteLine("Ya tenemos ganador");
-                
+                Console.WriteLine("Ya tenemos ganador: "+y.NombreUsuario());
+                Console.WriteLine("Con el carton");
+                y.cartones[posicion].Imprimir();
+                Ganador = true;
             }
-            else
-            {
-                Console.WriteLine("No hay ganador");
-            }
+           
 
         }
 
