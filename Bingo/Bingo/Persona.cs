@@ -15,7 +15,9 @@ namespace Bingo
 
         public IList<Carton> cartones { get { return _cartones; } }
 
-    public Persona(string name, List<Carton> cartones)
+        WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
+
+        public Persona(string name, List<Carton> cartones)
         {
             Name = name;
             this._cartones = cartones;

@@ -11,6 +11,9 @@ namespace Bingo
         private bool haGanado { get; set; }
         private object [,] carton { get; set; }
 
+        WcfServicioBingo.WCFBingoClient WCFInstancia = new WcfServicioBingo.WCFBingoClient();
+        
+
         public Carton(bool haGanado, object[,] carton)
         {
             this.haGanado = haGanado;
