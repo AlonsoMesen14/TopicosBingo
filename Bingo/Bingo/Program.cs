@@ -14,6 +14,8 @@ namespace Bingo
         WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
         static object[,] Carton = new object[6, 5];
 
+        WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
+
         public static void CrearPersona(string Nombre) {
             int cantCartones = 0;
             do
@@ -48,42 +50,13 @@ namespace Bingo
             {
                 Console.WriteLine("Digite el Nombre de Usuario:");
                 string Nombre = Console.ReadLine();
-                if (NombreDiferente(Nombre)==true)
-                {
-                    Console.WriteLine("El nombre de usuario ya esta siendo utilizado por otra persona," +
-                        " por favor escribir otro nombre de usuario");
-                    do
-                    {
-                        Console.WriteLine("Digite el Nombre de Usuario:");
-                       string username = Console.ReadLine();
-                        x = NombreDiferente(username);
-                    } while (x==true);
-                }
+
                 CrearPersona(Nombre);
             }
 
         }
-        public static bool NombreDiferente(string Nombre) {
-
-            //for (int i = 0; i < Players.Count; i++)
-            //{
-            //    if (Players.[i].)
-            //    {
-            //        return false;
-            //    }
-            //}
-
-            return false;
-        }
-        public static void Imprimir()
-        {
-            foreach (var item in Players)
-            {
-                Console.WriteLine("Cartones de: " + item.NombreUsuario());
-                item.Imprimir();
-            }
-
-        }
+       
+  
 
         /// <summary>
         /// YaSalio
@@ -172,6 +145,7 @@ namespace Bingo
             switch (type)
             {
                 //4 Esquinas
+                
                 case 1:
                     if (Carton[x, y].Equals(Carton[1, 0])
                         || Carton[x, y].Equals(Carton[1, 4])
@@ -239,7 +213,11 @@ namespace Bingo
                     return false;
             }
         }
+<<<<<<< HEAD
  
+=======
+      
+>>>>>>> 0011884fd737c08f633461597971c0eef70bbe37
         public static bool MenuCarton(int x, int y, int opcion)
         {
             switch (opcion)
@@ -311,6 +289,7 @@ namespace Bingo
             Console.WriteLine("5.Juego O");
             Console.WriteLine("Introduzca un Numero:");
         }
+<<<<<<< HEAD
         //public static void Menu()
         //{
 
@@ -394,6 +373,93 @@ namespace Bingo
         //    } while (menu != 7);
         //}
 
+=======
+      /* public static void Menu()
+        {
+            
+            int menu = 0;
+            do
+            {
+                TextoMenu();
+                BINGO.Clear();
+                Console.WriteLine("Introduzca un Numero");
+                menu = Convert.ToInt32(Console.ReadLine());
+                switch (menu)
+                { 
+                    
+                    case 1:
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i <= 30; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCartonClasico(Carton, BINGO);
+                        Console.ReadKey();
+                        break;
+
+                    case 2:
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i < 70; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCarton(Carton, BINGO, 1);
+                        Console.ReadKey();
+                        break;
+
+                    case 3:
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i < 70; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCarton(Carton, BINGO, 2);
+                        Console.ReadKey();
+                        break;
+
+                    case 4:
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i < 70; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCarton(Carton, BINGO, 3);
+                        Console.ReadKey();
+                        break;
+
+                    case 5:
+                        CrearCarton();
+                        Imprimir();
+                        for (int i = 0; i < 70; i++)
+                        {
+                            NumeroSale();
+                        }
+                        ValidarCarton(Carton, BINGO, 4);
+                        Console.ReadKey();
+                        break;
+
+                    case 6:
+                        
+                        break;
+
+                    case 7:
+
+                        break;
+
+                    default:
+                        break;
+                }
+
+            } while (menu != 7);
+        }
+        */
+
+  
+>>>>>>> 0011884fd737c08f633461597971c0eef70bbe37
         static void Main(string[] args)
         {
             Jugadores();
