@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Bingo
@@ -87,8 +88,10 @@ namespace Bingo
                 Numeros.Add(O);
                 Cart[i, 4] = O;
             }
+            
             Cart[3, 2] = ' ';
             Carton Cartoncito = new Carton(false, Cart);
+            Thread.Sleep(50); 
             this._cartones.Add(Cartoncito);
         }
         }
