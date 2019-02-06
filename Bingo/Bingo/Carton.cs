@@ -17,6 +17,6 @@ namespace Bingo
             this.carton = carton;
         }
 
-
+   
     }
 }

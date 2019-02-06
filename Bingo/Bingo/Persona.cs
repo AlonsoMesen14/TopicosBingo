@@ -87,7 +87,6 @@ namespace Bingo
             }
             Cart[3, 2] = ' ';
             Carton Cartoncito = new Carton(false, Cart);
-            _cartones.Add(Cartoncito);
             return Cartoncito;
         }
         
