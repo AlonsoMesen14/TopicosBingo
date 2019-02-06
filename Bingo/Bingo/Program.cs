@@ -14,7 +14,7 @@ namespace Bingo
         WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
         static object[,] Carton = new object[6, 5];
 
-        WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
+     
 
         public static void CrearPersona(string Nombre) {
             int cantCartones = 0;
@@ -213,11 +213,7 @@ namespace Bingo
                     return false;
             }
         }
-<<<<<<< HEAD
- 
-=======
-      
->>>>>>> 0011884fd737c08f633461597971c0eef70bbe37
+
         public static bool MenuCarton(int x, int y, int opcion)
         {
             switch (opcion)
@@ -289,7 +285,7 @@ namespace Bingo
             Console.WriteLine("5.Juego O");
             Console.WriteLine("Introduzca un Numero:");
         }
-<<<<<<< HEAD
+
         //public static void Menu()
         //{
 
@@ -373,7 +369,7 @@ namespace Bingo
         //    } while (menu != 7);
         //}
 
-=======
+
       /* public static void Menu()
         {
             
@@ -459,7 +455,7 @@ namespace Bingo
         */
 
   
->>>>>>> 0011884fd737c08f633461597971c0eef70bbe37
+
         static void Main(string[] args)
         {
             Jugadores();
