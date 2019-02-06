@@ -19,10 +19,12 @@ namespace Bingo
             Name = name;
             this._cartones = cartones;
         }
-        public Carton GetCrearCs()
+        public void GetCrearCs(int cant)
         {
-            object[,] Cart = new object[6, 5];
+            for (int j = 0; j < cant; j++)
+            {
 
+            object[,] Cart = new object[6, 5];
             ArrayList Numeros = new ArrayList();
             Random rnd = new Random();
             int B, I, N, G, O = 0;
@@ -88,7 +90,7 @@ namespace Bingo
             Cart[3, 2] = ' ';
             Carton Cartoncito = new Carton(false, Cart);
             this._cartones.Add(Cartoncito);
-            return Cartoncito;
+        }
         }
 
 

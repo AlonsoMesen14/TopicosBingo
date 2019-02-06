@@ -26,14 +26,17 @@ namespace Bingo
             List<Carton> _cartones = new List<Carton>();
             Persona nuevo = new Persona(Nombre, _cartones);
             
-            for (int i = 0; i < cantCartones; i++)
-            {
+      
                 //_cartones.Add(nuevo.GetCrearCs());
-                nuevo.GetCrearCs();
-            }
+                nuevo.GetCrearCs(cantCartones);
+        
      
             Players.Add(nuevo);
-            nuevo.Imprimir();
+            for (int i = 0; i < nuevo.cartones.Count; i++)
+            {
+                nuevo.cartones[i].Imprimir();
+            }
+            //nuevo.Imprimir();
             string CantidadDeJugadores = Console.ReadLine();
         }
         public static void Jugadores() {
@@ -62,13 +65,15 @@ namespace Bingo
          
         }
         public static bool NombreDiferente(string Nombre) {
-            foreach (var item in Players)
-            {
-                if (item.Equals(Nombre))
-                {
-                    return true;
-                }
-            }
+
+            //for (int i = 0; i < Players.Count; i++)
+            //{
+            //    if (Players.[i].)
+            //    {
+            //        return false;
+            //    }
+            //}
+
             return false;
         }
         public static void Imprimir()
