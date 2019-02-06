@@ -459,7 +459,7 @@ namespace Bingo
         static void Main(string[] args)
         {
             Jugadores();
-            for (int i = 0; i <= 70; i++)
+            for (int i = 0; i <= 55; i++)
             {
                 NumeroSale();
             }

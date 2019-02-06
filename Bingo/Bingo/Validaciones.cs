@@ -100,7 +100,7 @@ namespace Bingo
             numerosTiene.ToString();
             if (YaGano(numerosTiene) == true){
                 Console.WriteLine("Ya tenemos ganador");
-                return;
+                
             }
             else
             {
@@ -117,7 +117,7 @@ namespace Bingo
             {
                 for (int j = 0; j < numerosTiene.Count; j++)
                 {
-                    if (numerosTiene[j] == Program.BINGO[i])
+                    if (numerosTiene[j].Equals(Program.BINGO[i]))
                     {
                         numerosTiene.RemoveAt(j);
                         //j++;
@@ -129,18 +129,11 @@ namespace Bingo
                 }
 
             }
-
-
-
-
-
-
-
-
             if (numerosTiene.Count == 0)
                     {
                      return true;
                     }
+
                     return false;
         }
 
