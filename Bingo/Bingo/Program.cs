@@ -14,6 +14,8 @@ namespace Bingo
         
         static object[,] Carton = new object[6, 5];
 
+        WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
+
         public static void CrearPersona(string Nombre) {
             int cantCartones = 0;
             do
@@ -48,43 +50,14 @@ namespace Bingo
             {
                 Console.WriteLine("Digite el Nombre de Usuario:");
                 string Nombre = Console.ReadLine();
-                if (NombreDiferente(Nombre)==true)
-                {
-                    Console.WriteLine("El nombre de usuario ya esta siendo utilizado por otra persona," +
-                        " por favor escribir otro nombre de usuario");
-                    do
-                    {
-                        Console.WriteLine("Digite el Nombre de Usuario:");
-                       string username = Console.ReadLine();
-                        x = NombreDiferente(username);
-                    } while (x==true);
-                }
+
                 CrearPersona(Nombre);
             }
 
          
         }
-        public static bool NombreDiferente(string Nombre) {
-
-            //for (int i = 0; i < Players.Count; i++)
-            //{
-            //    if (Players.[i].)
-            //    {
-            //        return false;
-            //    }
-            //}
-
-            return false;
-        }
-        public static void Imprimir()
-        {
-            foreach (var item in Players)
-            {
-                Console.WriteLine("Cartones de: " + item.NombreUsuario());
-                item.Imprimir();
-            }
-
-        }
+       
+  
 
      
 
@@ -175,6 +148,7 @@ namespace Bingo
             switch (type)
             {
                 //4 Esquinas
+                
                 case 1:
                     if (Carton[x, y].Equals(Carton[1, 0])
                         || Carton[x, y].Equals(Carton[1, 4])
@@ -242,11 +216,7 @@ namespace Bingo
                     return false;
             }
         }
-        public static void NuevosModos(){
-
-
-
-        }
+      
         public static bool MenuCarton(int x, int y, int opcion)
         {
             switch (opcion)
@@ -403,37 +373,7 @@ namespace Bingo
         }
         */
 
-        public static bool CartonGanador(object Carton) {
-
-            if (true)
-            {
-
-            }
-            else {
-
-
-            }
-            return false;
-        }
-        public static int HayGanador(ArrayList Personas) {
-            for (int i = 0; i < 10; i++)//array de usuarios
-            {
-                if (CuatroEsquinas(Personas[i])==true)//Personas[i].Carton
-                {                                   //Personas[i].Nombre
-                    Console.WriteLine("El usuario" + Personas[i] + "Ha ganado");
-
-                }
-            }
-
-            return 7;
-        }
-        public static bool CuatroEsquinas(object Carton) {
-
-
-
-            return false;
-        }
-       
+  
         static void Main(string[] args)
         {
             Jugadores();
