@@ -319,7 +319,7 @@ namespace Bingo
             Console.WriteLine("5.Juego O");
             Console.WriteLine("Introduzca un Numero:");
         }
-        public static void Menu()
+      /* public static void Menu()
         {
             
             int menu = 0;
@@ -401,6 +401,7 @@ namespace Bingo
 
             } while (menu != 7);
         }
+        */
 
         public static bool CartonGanador(object Carton) {
 

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo", "Bingo\Bingo.csproj", "{C799E7D0-C418-47FD-807C-D8E1040D8F91}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5007547D-E413-441F-9200-2CDBCF8B6FC7} = {5007547D-E413-441F-9200-2CDBCF8B6FC7}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfBingo", "WcfBingo\WcfBingo.csproj", "{5007547D-E413-441F-9200-2CDBCF8B6FC7}"
 EndProject
