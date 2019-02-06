@@ -19,14 +19,14 @@ namespace Bingo
             {
                 for (int c = 0; c < Carton.GetLength(1); c++)
                 {
-                    
+
                     Console.Write(String.Format("{0}\t", Carton[f, c]));
                 }
-               
+
                 Console.Write(Environment.NewLine + Environment.NewLine);
-               
+
             }
-            
+
         }
 
         /// <summary>
@@ -156,27 +156,27 @@ namespace Bingo
         {
 
 
-           
-                for (int f = 0; f < Carton.GetLength(0); f++)
+
+            for (int f = 0; f < Carton.GetLength(0); f++)
+            {
+                for (int c = 0; c < Carton.GetLength(1); c++)
+
                 {
-                    for (int c = 0; c < Carton.GetLength(1); c++)
-
+                    int dato = Carton[f, c].GetHashCode();
+                    if (YaSalio(dato, N))
                     {
-                        int dato = Carton[f, c].GetHashCode();
-                        if (YaSalio(dato, N))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        Console.Write("  " + Carton[f, c] + "  ");
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
-                    Console.WriteLine();
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    Console.Write("  " + Carton[f, c] + "  ");
                 }
+                Console.WriteLine();
+            }
 
-           
+
 
         }
 
@@ -254,14 +254,18 @@ namespace Bingo
                     }
                     return false;
 
-            
+
                 default:
                     return false;
             }
 
-            
-        }
 
+        }
+        public static void NuevosModos(){
+
+
+
+        }
         public static bool MenuCarton(int x, int y, int opcion)
         {
 
@@ -354,7 +358,7 @@ namespace Bingo
                     case 1:
                         CrearCarton();
                         Imprimir();
-                        for (int i = 0; i < 30; i++)
+                        for (int i = 0; i <= 30; i++)
                         {
                             NumeroSale();
                         }
@@ -420,6 +424,63 @@ namespace Bingo
 
             } while (menu != 7);
         }
+        public static bool CartonGanador(object Carton) {
+
+            if (true)
+            {
+
+            }
+            else {
+
+
+            }
+            return false;
+        }
+        public static int HayGanador(ArrayList Personas) {
+            for (int i = 0; i < 10; i++)//array de usuarios
+            {
+                if (CuatroEsquinas(Personas[i])==true)//Personas[i].Carton
+                {                                   //Personas[i].Nombre
+                    Console.WriteLine("El usuario" + Personas[i] + "Ha ganado");
+
+                }
+            }
+
+            return 7;
+        }
+        public static bool CuatroEsquinas(object Carton) {
+
+
+
+            return false;
+        }
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         static void Main(string[] args)
         {
             Menu();
