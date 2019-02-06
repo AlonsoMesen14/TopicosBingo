@@ -86,75 +86,7 @@ namespace Bingo
 
         }
 
-        /// <summary>
-        /// Crea el carton
-        /// </summary>
-        public static void CrearCarton()
-        {
-            ArrayList Numeros = new ArrayList();
-            Random rnd = new Random();
-            int B, I, N, G, O = 0;
-            Carton[0, 0] = 'B';
-            Carton[0, 1] = 'I';
-            Carton[0, 2] = 'N';
-            Carton[0, 3] = 'G';
-            Carton[0, 4] = 'O';
-            B = rnd.Next(1, 15);
-            Numeros.Add(B);
-            Carton[1, 0] = B;
-
-            I = rnd.Next(16, 30);
-            Numeros.Add(I);
-            Carton[1, 1] = I;
-
-            N = rnd.Next(31, 45);
-            Numeros.Add(N);
-            Carton[1, 2] = N;
-
-            G = rnd.Next(46, 60);
-            Numeros.Add(G);
-            Carton[1, 3] = G;
-
-            O = rnd.Next(61, 75);
-            Numeros.Add(O);
-            Carton[1, 4] = O;
-
-            for (int i = 2; i <= 5; i++)
-            {
-
-                while (Numeros.Contains(B))
-                {
-                    B = rnd.Next(1, 15);
-                }
-                Numeros.Add(B);
-                Carton[i, 0] = B;
-                while (Numeros.Contains(I))
-                {
-                    I = rnd.Next(16, 30);
-                }
-                Numeros.Add(I);
-                Carton[i, 1] = I;
-                while (Numeros.Contains(N))
-                {
-                    N = rnd.Next(31, 45);
-                }
-                Numeros.Add(N);
-                Carton[i, 2] = N;
-                while (Numeros.Contains(G))
-                {
-                    G = rnd.Next(46, 60);
-                }
-                Numeros.Add(G);
-                Carton[i, 3] = G;
-                while (Numeros.Contains(O))
-                {
-                    O = rnd.Next(61, 75);
-                }
-                Numeros.Add(O);
-                Carton[i, 4] = O;
-            }
-            Carton[3, 2] = ' ';
-        }
+     
 
         /// <summary>
         /// YaSalio
@@ -211,9 +143,6 @@ namespace Bingo
 
         public static void ValidarCartonClasico(object carton, ArrayList N)
         {
-
-
-
             for (int f = 0; f < Carton.GetLength(0); f++)
             {
                 for (int c = 0; c < Carton.GetLength(1); c++)
@@ -232,9 +161,6 @@ namespace Bingo
                 }
                 Console.WriteLine();
             }
-
-
-
         }
 
         /// <summary>
@@ -315,8 +241,6 @@ namespace Bingo
                 default:
                     return false;
             }
-
-
         }
         public static void NuevosModos(){
 
@@ -325,8 +249,6 @@ namespace Bingo
         }
         public static bool MenuCarton(int x, int y, int opcion)
         {
-
-
             switch (opcion)
             {
                 case 1:
@@ -386,7 +308,6 @@ namespace Bingo
         }
         
 
-
         public static void TextoMenu()
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -398,7 +319,6 @@ namespace Bingo
             Console.WriteLine("5.Juego O");
             Console.WriteLine("Introduzca un Numero:");
         }
-
         public static void Menu()
         {
             
@@ -481,6 +401,7 @@ namespace Bingo
 
             } while (menu != 7);
         }
+
         public static bool CartonGanador(object Carton) {
 
             if (true)
@@ -512,32 +433,6 @@ namespace Bingo
             return false;
         }
        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         static void Main(string[] args)
         {
             Jugadores();
