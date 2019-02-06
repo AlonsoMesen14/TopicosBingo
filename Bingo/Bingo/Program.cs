@@ -11,13 +11,18 @@ namespace Bingo
     { //Varibles Estaticas
         static ArrayList BINGO = new ArrayList();//Arraylist que contiene los numeros que han salido
         static List<Persona> Players= new List<Persona>();//Lista que contiene Personas y cartones
+        
         static object[,] Carton = new object[6, 5];
 
         public static void CrearPersona(string Nombre) {
-
-            Console.WriteLine("Digite la cantida de cartones que desea:"+Nombre);
-            string CantidadDeCartones = Console.ReadLine();
-            int cantCartones = System.Convert.ToInt32(CantidadDeCartones);
+            int cantCartones = 0;
+            do
+            {
+                Console.WriteLine("Digite la cantida de cartones que desea:" + Nombre);
+                string CantidadDeCartones = Console.ReadLine();
+                cantCartones = System.Convert.ToInt32(CantidadDeCartones);
+            } while (cantCartones>0);
+            
             List<Carton> _cartones = new List<Carton>();
             Persona nuevo = new Persona(Nombre, _cartones);
           
@@ -37,17 +42,38 @@ namespace Bingo
         public static void Jugadores() {
             Console.WriteLine("Digite la cantidad de usuarios:");
             string CantidadDeJugadores = Console.ReadLine();
+            bool x = true;
             int cantPlayer = System.Convert.ToInt32(CantidadDeJugadores);
             for (int i = 0; i <cantPlayer; i++)
             {
                 Console.WriteLine("Digite el Nombre de Usuario:");
                 string Nombre = Console.ReadLine();
+                if (NombreDiferente(Nombre)==true)
+                {
+                    Console.WriteLine("El nombre de usuario ya esta siendo utilizado por otra persona," +
+                        " por favor escribir otro nombre de usuario");
+                    do
+                    {
+                        Console.WriteLine("Digite el Nombre de Usuario:");
+                       string username = Console.ReadLine();
+                        x = NombreDiferente(username);
+                    } while (x==true);
+                }
                 CrearPersona(Nombre);
             }
 
-
+         
         }
-       
+        public static bool NombreDiferente(string Nombre) {
+            foreach (var item in Players)
+            {
+                if (item.Equals(Nombre))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public static void Imprimir()
         {
             for (int f = 0; f < Carton.GetLength(0); f++)
