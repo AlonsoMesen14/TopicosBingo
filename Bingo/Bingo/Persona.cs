@@ -112,6 +112,8 @@ namespace Bingo
         public string NombreUsuario() {
             return this.Name;
         }
-
+        public object getCarton(int i) {
+            return this._cartones[i].getCartonActual();
+        }
     }
 }

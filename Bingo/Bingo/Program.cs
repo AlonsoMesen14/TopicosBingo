@@ -9,11 +9,11 @@ namespace Bingo
 {
     class Program
     { //Varibles Estaticas
-        static ArrayList BINGO = new ArrayList();//Arraylist que contiene los numeros que han salido
-        static List<Persona> Players= new List<Persona>();//Lista que contiene Personas y cartones
+        public static ArrayList BINGO = new ArrayList();//Arraylist que contiene los numeros que han salido
+        public static List<Persona> Players= new List<Persona>();//Lista que contiene Personas y cartones
         WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
         static object[,] Carton = new object[6, 5];
-
+       
      
 
         public static void CrearPersona(string Nombre) {
@@ -459,6 +459,11 @@ namespace Bingo
         static void Main(string[] args)
         {
             Jugadores();
+            for (int i = 0; i <= 70; i++)
+            {
+                NumeroSale();
+            }
+            Validaciones.Revision(1);
             //Imprimir();
             Console.ReadLine();
             //Menu();

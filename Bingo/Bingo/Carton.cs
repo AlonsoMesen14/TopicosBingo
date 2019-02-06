@@ -18,7 +18,10 @@ namespace Bingo
             this.haGanado = haGanado;
             this.carton = carton;
         }
-
+        public object[,] getCartonActual()
+        {
+            return this.carton;
+        }
         public void Imprimir()
         {
             for (int f = 0; f < this.carton.GetLength(0); f++)
