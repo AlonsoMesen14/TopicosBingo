@@ -30,6 +30,32 @@ namespace Bingo
             object[,] Cart = new object[6, 5];
             ArrayList Numeros = new ArrayList();
             Random rnd = new Random();
+                int B = 0;
+                int I = 0;
+                int N = 0;
+                int G = 0;
+                int O = 0;
+            Cart = FormarCarton(Cart);
+                Numeros = Llenado(Numeros, Cart);
+            Cart =LlenarCarton(Cart, Numeros, B, I, N, G, O);
+            Cart[3, 2] = ' ';
+            Carton Cartoncito = new Carton(false, Cart);
+            Thread.Sleep(50); 
+            this._cartones.Add(Cartoncito);
+        }
+        }
+        public ArrayList Llenado(ArrayList Numeros, object[,] Cart) {
+            Numeros.Add(Cart[1, 0]);
+            Numeros.Add(Cart[1, 1]);
+            Numeros.Add(Cart[1, 2]);
+            Numeros.Add(Cart[1, 3]);
+            Numeros.Add(Cart[1, 4]);
+            return Numeros;
+        }
+
+
+        public object[,] FormarCarton(object[,] Cart) {
+            Random rnd = new Random();
             int B, I, N, G, O = 0;
             Cart[0, 0] = 'B';
             Cart[0, 1] = 'I';
@@ -37,28 +63,22 @@ namespace Bingo
             Cart[0, 3] = 'G';
             Cart[0, 4] = 'O';
             B = rnd.Next(1, 15);
-            Numeros.Add(B);
             Cart[1, 0] = B;
-
             I = rnd.Next(16, 30);
-            Numeros.Add(I);
             Cart[1, 1] = I;
-
             N = rnd.Next(31, 45);
-            Numeros.Add(N);
             Cart[1, 2] = N;
-
             G = rnd.Next(46, 60);
-            Numeros.Add(G);
             Cart[1, 3] = G;
-
             O = rnd.Next(61, 75);
-            Numeros.Add(O);
             Cart[1, 4] = O;
+            return Cart;
 
+        }
+        public object[,] LlenarCarton(object[,] Cart, ArrayList Numeros,int B,int I, int N, int G, int O) {
+            Random rnd = new Random();
             for (int i = 2; i <= 5; i++)
             {
-
                 while (Numeros.Contains(B))
                 {
                     B = rnd.Next(1, 15);
@@ -90,13 +110,11 @@ namespace Bingo
                 Numeros.Add(O);
                 Cart[i, 4] = O;
             }
-            
-            Cart[3, 2] = ' ';
-            Carton Cartoncito = new Carton(false, Cart);
-            Thread.Sleep(50); 
-            this._cartones.Add(Cartoncito);
+            return Cart;
         }
-        }
+
+        
+
 
 
         public void Imprimir()

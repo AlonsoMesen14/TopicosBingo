@@ -44,7 +44,6 @@ namespace Bingo
         public static void Jugadores() {
             Console.WriteLine("Digite la cantidad de usuarios:");
             string CantidadDeJugadores = Console.ReadLine();
-            bool x = true;
             int cantPlayer = System.Convert.ToInt32(CantidadDeJugadores);
             for (int i = 0; i <cantPlayer; i++)
             {
