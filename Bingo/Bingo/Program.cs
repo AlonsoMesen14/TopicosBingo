@@ -18,12 +18,22 @@ namespace Bingo
 
         public static void CrearPersona(string Nombre) {
             int cantCartones = 0;
+            bool esNumero = true;
+            string CantidadDeCartones = " ";
             do
             {
-                Console.WriteLine("Digite la cantida de cartones que desea:" + Nombre);
-                string CantidadDeCartones = Console.ReadLine();
-                cantCartones = System.Convert.ToInt32(CantidadDeCartones);
-            } while (cantCartones<0);
+                Console.WriteLine("Digite la cantidad de cartones que desea:" + Nombre);
+                CantidadDeCartones = Console.ReadLine();
+                esNumero = int.TryParse(CantidadDeCartones, out cantCartones);
+                if (esNumero)
+                {
+                    cantCartones = System.Convert.ToInt32(CantidadDeCartones);
+                }
+                else {
+                    cantCartones = -2;
+                }
+                
+            } while (cantCartones < 0);
 
             List<Carton> _cartones = new List<Carton>();
             Persona nuevo = new Persona(Nombre, _cartones);
@@ -42,9 +52,15 @@ namespace Bingo
             string CantidadDeJugadores = Console.ReadLine();
         }
         public static void Jugadores() {
-            Console.WriteLine("Digite la cantidad de usuarios:");
-            string CantidadDeJugadores = Console.ReadLine();
-            int cantPlayer = System.Convert.ToInt32(CantidadDeJugadores);
+            int cantPlayer = 0;
+            bool esNumero=true;
+            string CantidadDeJugadores = " ";
+            do {
+                Console.WriteLine("Digite la cantidad de usuarios:");
+                CantidadDeJugadores = Console.ReadLine();
+                esNumero=int.TryParse(CantidadDeJugadores, out cantPlayer);
+            } while (!esNumero);
+            cantPlayer = System.Convert.ToInt32(CantidadDeJugadores);
             for (int i = 0; i <cantPlayer; i++)
             {
                 Console.WriteLine("Digite el Nombre de Usuario:");
