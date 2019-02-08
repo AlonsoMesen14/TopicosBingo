@@ -51,6 +51,9 @@ namespace Bingo
                     numerosTiene = CartonLleno(numerosTiene, carton);
                     break;
             }
+
+            ImprimirCarton(carton, numerosTiene);
+            Console.ForegroundColor = ConsoleColor.White;
             if (YaGano(numerosTiene) == true){
                 Console.WriteLine("Ya tenemos ganador: "+y.NombreUsuario());
                 Console.WriteLine("Con el carton");
@@ -61,12 +64,14 @@ namespace Bingo
     
         public static bool YaGano(ArrayList numerosTiene)
         {
+            
             for (int i = 0; i < Program.BINGO.Count; i++)
             {
                 for (int j = 0; j < numerosTiene.Count; j++)
                 {
                     if (numerosTiene[j].Equals(Program.BINGO[i]))
                     {
+
                         numerosTiene.RemoveAt(j);
                     }
                     if (numerosTiene.Count == 0)
@@ -74,14 +79,64 @@ namespace Bingo
                         break;
                     }
                 }
-
+                
             }
+
             if (numerosTiene.Count == 0)
                     {
                      return true;
                     }
                     return false;
         }
+
+        public static void ImprimirCarton(object[,] carton, ArrayList numerosTiene)
+        {
+            
+
+                for (int f = 0; f < carton.GetLength(0); f++)
+                {
+                    for (int c = 0; c < carton.GetLength(1); c++)
+                    {
+                   
+                        for (int j = 0; j < numerosTiene.Count; j++)
+                        {
+                            if (carton[f,c]==numerosTiene[j] && RevisarBingo(numerosTiene,j)==true)
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            break;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        
+                        }
+                       
+                     
+                        Console.Write(String.Format("{0}\t", carton[f, c]));
+
+                    }
+
+                    Console.Write(Environment.NewLine + Environment.NewLine);
+
+                }
+            
+           
+        }
+
+       public static bool RevisarBingo(ArrayList n,int x)
+        {
+            for (int i = 0; i < Program.BINGO.Count; i++)
+            {
+                if (n[x].Equals(Program.BINGO[i]))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
 
         public static ArrayList CuatroEsquina(ArrayList numerosTiene, object[,] carton) {
             numerosTiene.Add(carton[1, 0]);
@@ -90,7 +145,6 @@ namespace Bingo
             numerosTiene.Add(carton[5, 4]);
             return numerosTiene;
         }
-
         public static ArrayList LetraH(ArrayList numerosTiene, object[,] carton)
         {
             for (int i = 1; i <= 5; i++)
