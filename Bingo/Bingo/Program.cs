@@ -46,6 +46,7 @@ namespace Bingo
             Players.Add(nuevo);
             for (int i = 0; i < nuevo.cartones.Count; i++)
             {
+                Console.WriteLine();
                 nuevo.cartones[i].Imprimir();
             }
             //nuevo.Imprimir();

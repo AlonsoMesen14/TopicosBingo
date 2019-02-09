@@ -55,8 +55,10 @@ namespace Bingo
             ImprimirCarton(carton, numerosTiene);
             Console.ForegroundColor = ConsoleColor.White;
             if (YaGano(numerosTiene) == true){
+                Console.WriteLine();
                 Console.WriteLine("Ya tenemos ganador: "+y.NombreUsuario());
                 Console.WriteLine("Con el carton");
+                Console.WriteLine();
                 y.cartones[posicion].Imprimir();
                 Ganador = true;
             }
@@ -91,8 +93,8 @@ namespace Bingo
 
         public static void ImprimirCarton(object[,] carton, ArrayList numerosTiene)
         {
-            
 
+                Console.WriteLine();
                 for (int f = 0; f < carton.GetLength(0); f++)
                 {
                     for (int c = 0; c < carton.GetLength(1); c++)
