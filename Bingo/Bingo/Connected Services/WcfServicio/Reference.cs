@@ -15,18 +15,15 @@ namespace Bingo.WcfServicio {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfBingo")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Menu", Namespace="http://schemas.datacontract.org/2004/07/WcfBingo")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Menu : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private string mensajeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -39,27 +36,59 @@ namespace Bingo.WcfServicio {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public string mensaje {
             get {
-                return this.BoolValueField;
+                return this.mensajeField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((object.ReferenceEquals(this.mensajeField, value) != true)) {
+                    this.mensajeField = value;
+                    this.RaisePropertyChanged("mensaje");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReglasDeJuego", Namespace="http://schemas.datacontract.org/2004/07/WcfBingo")]
+    [System.SerializableAttribute()]
+    public partial class ReglasDeJuego : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MensajeInstruccionesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
-                return this.StringValueField;
+                return this.extensionDataField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MensajeInstrucciones {
+            get {
+                return this.MensajeInstruccionesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MensajeInstruccionesField, value) != true)) {
+                    this.MensajeInstruccionesField = value;
+                    this.RaisePropertyChanged("MensajeInstrucciones");
                 }
             }
         }
@@ -78,17 +107,17 @@ namespace Bingo.WcfServicio {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfServicio.IWCFBingo")]
     public interface IWCFBingo {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBingo/GetData", ReplyAction="http://tempuri.org/IWCFBingo/GetDataResponse")]
-        string GetData(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBingo/MENU", ReplyAction="http://tempuri.org/IWCFBingo/MENUResponse")]
+        Bingo.WcfServicio.Menu MENU(int opcion);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBingo/GetData", ReplyAction="http://tempuri.org/IWCFBingo/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBingo/MENU", ReplyAction="http://tempuri.org/IWCFBingo/MENUResponse")]
+        System.Threading.Tasks.Task<Bingo.WcfServicio.Menu> MENUAsync(int opcion);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBingo/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IWCFBingo/GetDataUsingDataContractResponse")]
-        Bingo.WcfServicio.CompositeType GetDataUsingDataContract(Bingo.WcfServicio.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBingo/ReglasDeJuego", ReplyAction="http://tempuri.org/IWCFBingo/ReglasDeJuegoResponse")]
+        Bingo.WcfServicio.ReglasDeJuego ReglasDeJuego();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBingo/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IWCFBingo/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<Bingo.WcfServicio.CompositeType> GetDataUsingDataContractAsync(Bingo.WcfServicio.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWCFBingo/ReglasDeJuego", ReplyAction="http://tempuri.org/IWCFBingo/ReglasDeJuegoResponse")]
+        System.Threading.Tasks.Task<Bingo.WcfServicio.ReglasDeJuego> ReglasDeJuegoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -118,20 +147,20 @@ namespace Bingo.WcfServicio {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
+        public Bingo.WcfServicio.Menu MENU(int opcion) {
+            return base.Channel.MENU(opcion);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
+        public System.Threading.Tasks.Task<Bingo.WcfServicio.Menu> MENUAsync(int opcion) {
+            return base.Channel.MENUAsync(opcion);
         }
         
-        public Bingo.WcfServicio.CompositeType GetDataUsingDataContract(Bingo.WcfServicio.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
+        public Bingo.WcfServicio.ReglasDeJuego ReglasDeJuego() {
+            return base.Channel.ReglasDeJuego();
         }
         
-        public System.Threading.Tasks.Task<Bingo.WcfServicio.CompositeType> GetDataUsingDataContractAsync(Bingo.WcfServicio.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task<Bingo.WcfServicio.ReglasDeJuego> ReglasDeJuegoAsync() {
+            return base.Channel.ReglasDeJuegoAsync();
         }
     }
 }

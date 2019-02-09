@@ -10,7 +10,7 @@ namespace Bingo
     class Validaciones
     {
         static bool Ganador = false;
-        WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
+       
 
         public static void Revision(int Tipo) {
             for (int i = 0; i < Program.Players.Count; i++)
@@ -18,6 +18,11 @@ namespace Bingo
                 for (int j  = 0; j  < Program.Players[i].cartones.Count; j ++)
                 {
                     LlenarRevision(Tipo, Program.Players[i], j);
+                    
+                }
+                if(Ganador == true)
+                {
+                    return;
                 }
             }
             if (Ganador==false)
@@ -51,17 +56,22 @@ namespace Bingo
                     numerosTiene = CartonLleno(numerosTiene, carton);
                     break;
             }
-
+            Console.WriteLine();
+            Console.WriteLine(y.NombreUsuario());
             ImprimirCarton(carton, numerosTiene);
             Console.ForegroundColor = ConsoleColor.White;
+
             if (YaGano(numerosTiene) == true){
                 Console.WriteLine();
                 Console.WriteLine("Ya tenemos ganador: "+y.NombreUsuario());
                 Console.WriteLine("Con el carton");
                 Console.WriteLine();
                 y.cartones[posicion].Imprimir();
+                Program.EsGanador = true;
                 Ganador = true;
+                return;
             }
+            
         }
     
         public static bool YaGano(ArrayList numerosTiene)
@@ -78,7 +88,9 @@ namespace Bingo
                     }
                     if (numerosTiene.Count == 0)
                     {
-                        break;
+                        Ganador = true;
+                        Program.EsGanador = true;
+                        return true;
                     }
                 }
                 
@@ -86,6 +98,7 @@ namespace Bingo
 
             if (numerosTiene.Count == 0)
                     {
+                     Program.EsGanador = true;
                      return true;
                     }
                     return false;

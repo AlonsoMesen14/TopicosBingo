@@ -45,20 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Carton.cs" />
+    <Compile Include="Logica\Objetos\Carton.cs" />
     <Compile Include="Connected Services\WcfServicio\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Persona.cs" />
+    <Compile Include="Logica\Objetos\Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validaciones.cs" />
+    <Compile Include="Logica\Validaciones\Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\WcfServicio\Bingo.WcfServicio.CompositeType.datasource">
+    <None Include="Connected Services\WcfServicio\Bingo.WcfServicio.Menu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WcfServicio\Bingo.WcfServicio.ReglasDeJuego.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\WcfServicio\Service1.xsd">

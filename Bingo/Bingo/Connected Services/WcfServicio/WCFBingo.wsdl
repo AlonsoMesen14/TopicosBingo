@@ -7,32 +7,32 @@
       <xsd:import schemaLocation="http://localhost:59478/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfBingo" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IWCFBingo_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
+  <wsdl:message name="IWCFBingo_MENU_InputMessage">
+    <wsdl:part name="parameters" element="tns:MENU" />
   </wsdl:message>
-  <wsdl:message name="IWCFBingo_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  <wsdl:message name="IWCFBingo_MENU_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MENUResponse" />
   </wsdl:message>
-  <wsdl:message name="IWCFBingo_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  <wsdl:message name="IWCFBingo_ReglasDeJuego_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReglasDeJuego" />
   </wsdl:message>
-  <wsdl:message name="IWCFBingo_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  <wsdl:message name="IWCFBingo_ReglasDeJuego_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReglasDeJuegoResponse" />
   </wsdl:message>
   <wsdl:portType name="IWCFBingo">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBingo/GetData" message="tns:IWCFBingo_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBingo/GetDataResponse" message="tns:IWCFBingo_GetData_OutputMessage" />
+    <wsdl:operation name="MENU">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBingo/MENU" message="tns:IWCFBingo_MENU_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBingo/MENUResponse" message="tns:IWCFBingo_MENU_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBingo/GetDataUsingDataContract" message="tns:IWCFBingo_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBingo/GetDataUsingDataContractResponse" message="tns:IWCFBingo_GetDataUsingDataContract_OutputMessage" />
+    <wsdl:operation name="ReglasDeJuego">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWCFBingo/ReglasDeJuego" message="tns:IWCFBingo_ReglasDeJuego_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWCFBingo/ReglasDeJuegoResponse" message="tns:IWCFBingo_ReglasDeJuego_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWCFBingo" type="tns:IWCFBingo">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IWCFBingo/GetData" style="document" />
+    <wsdl:operation name="MENU">
+      <soap:operation soapAction="http://tempuri.org/IWCFBingo/MENU" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -40,8 +40,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/IWCFBingo/GetDataUsingDataContract" style="document" />
+    <wsdl:operation name="ReglasDeJuego">
+      <soap:operation soapAction="http://tempuri.org/IWCFBingo/ReglasDeJuego" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

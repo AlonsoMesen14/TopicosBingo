@@ -11,8 +11,9 @@ namespace Bingo
     { //Varibles Estaticas
         public static ArrayList BINGO = new ArrayList();//Arraylist que contiene los numeros que han salido
         public static List<Persona> Players= new List<Persona>();//Lista que contiene Personas y cartones
-        WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
+       // WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient();
         static object[,] Carton = new object[6, 5];
+        public static bool EsGanador = false;
        
      
 
@@ -52,6 +53,7 @@ namespace Bingo
             //nuevo.Imprimir();
             string CantidadDeJugadores = Console.ReadLine();
         }
+
         public static void Jugadores() {
             int cantPlayer = 0;
             bool esNumero=true;
@@ -100,219 +102,95 @@ namespace Bingo
         {
             Random rnd = new Random();
             int numero = 0;
-            do
-            {
-                numero = rnd.Next(1, 75);
-            } while (YaSalio(numero, BINGO) == true);
-            BINGO.Add(numero);
-            if (numero <= 15)
-            {
-                Console.WriteLine("En la columna de la B, Numero: " + numero);
-            }
-            else if (numero >= 16 && numero <= 30)
-            {
-                Console.WriteLine("En la columna de la I, Numero: " + numero);
-            }
-            else if (numero >= 31 && numero <= 45)
-            {
-                Console.WriteLine("En la columna de la N, Numero: " + numero);
-            }
-            else if (numero >= 46 && numero <= 60)
-            {
-                Console.WriteLine("En la columna de la G, Numero: " + numero);
-            }
-            else
-            {
-                Console.WriteLine("En la columna de la O, Numero: " + numero);
-            }
-        }
-
-        public static void ValidarCartonClasico(object carton, ArrayList N)
-        {
-            for (int f = 0; f < Carton.GetLength(0); f++)
-            {
-                for (int c = 0; c < Carton.GetLength(1); c++)
-
+            
+                do
                 {
-                    int dato = Carton[f, c].GetHashCode();
-                    if (YaSalio(dato, N))
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-                    Console.Write("  " + Carton[f, c] + "  ");
-                }
-                Console.WriteLine();
-            }
-        }
-
-        /// <summary>
-        /// metodo para verificar la posicion de los numeros esten correctos 
-        /// </summary>
-        /// <param name="x">Posicion en el Carton</param>
-        /// <param name="y">Posicion en el Carton</param>
-        /// <param name="type">Tipo del modo de juego</param>
-        /// <returns>retorna true si los numeros estan en la posicion correcta </returns>
-        public static bool VerificarCarton(int x, int y, int type)
-        {
-            switch (type)
-            {
-                //4 Esquinas
-                
-                case 1:
-                    if (Carton[x, y].Equals(Carton[1, 0])
-                        || Carton[x, y].Equals(Carton[1, 4])
-                        || Carton[x, y].Equals(Carton[5, 0])
-                        || Carton[x, y].Equals(Carton[5, 4]))
-                    {
-                        return true;
-                    }
-                    return false;
-                case 2:
-                    // X
-                    if (Carton[x, y].Equals(Carton[1, 0])
-                         || Carton[x, y].Equals(Carton[2, 1])
-                         || Carton[x, y].Equals(Carton[4, 3])
-                         || Carton[x, y].Equals(Carton[5, 4])
-                         || Carton[x, y].Equals(Carton[1, 4])
-                         || Carton[x, y].Equals(Carton[2, 3])
-                         || Carton[x, y].Equals(Carton[4, 1])
-                         || Carton[x, y].Equals(Carton[5, 0]))
-                    {
-                        return true;
-                    }
-                    return false;
-
-                case 3:
-                    //H
-                    if (Carton[x, y].Equals(Carton[1, 0])
-                        || Carton[x, y].Equals(Carton[2, 0])
-                        || Carton[x, y].Equals(Carton[3, 0])
-                        || Carton[x, y].Equals(Carton[4, 0])
-                        || Carton[x, y].Equals(Carton[5, 0])
-                        || Carton[x, y].Equals(Carton[3, 1])
-                        || Carton[x, y].Equals(Carton[3, 3])
-                        || Carton[x, y].Equals(Carton[3, 4])
-                        || Carton[x, y].Equals(Carton[1, 4])
-                        || Carton[x, y].Equals(Carton[2, 4])
-                        || Carton[x, y].Equals(Carton[4, 4])
-                        || Carton[x, y].Equals(Carton[5, 4]))
-                    {
-                        return true;
-                    }
-                    return false;
-
-                case 4:
-                    //O
-                    if (Carton[x, y].Equals(Carton[2, 0])
-                        || Carton[x, y].Equals(Carton[3, 0])
-                        || Carton[x, y].Equals(Carton[4, 0])
-                        || Carton[x, y].Equals(Carton[5, 1])
-                        || Carton[x, y].Equals(Carton[5, 2])
-                        || Carton[x, y].Equals(Carton[5, 3])
-                        || Carton[x, y].Equals(Carton[1, 1])
-                        || Carton[x, y].Equals(Carton[1, 2])
-                        || Carton[x, y].Equals(Carton[1, 3])
-                        || Carton[x, y].Equals(Carton[2, 4])
-                        || Carton[x, y].Equals(Carton[3, 4])
-                        || Carton[x, y].Equals(Carton[4, 4]))
-                    {
-                        return true;
-                    }
-                    return false;
-
-
-                default:
-                    return false;
-            }
-        }
-
-        public static bool MenuCarton(int x, int y, int opcion)
-        {
-            switch (opcion)
-            {
-                case 1:
-                    if (VerificarCarton(x, y, 1) == true)
-                    {
-                        return true;
-                    }
-                    return false;
-
-                case 2:
-                    if (VerificarCarton(x, y, 2) == true)
-                    {
-                        return true;
-                    }
-                    return false;
-
-                case 3:
-                    if (VerificarCarton(x, y, 3) == true)
-                    {
-                        return true;
-                    }
-                    return false;
-
-                case 4:
-                    if (VerificarCarton(x, y, 4) == true)
-                    {
-                        return true;
-                    }
-                    return false;
-
-                default:
-                    return false;
-            }
-        }
-
-        public static void ValidarCarton(object carton, ArrayList N, int Tipo)
-        {
-            for (int f = 0; f < Carton.GetLength(0); f++)
-            {
-                for (int c = 0; c < Carton.GetLength(1); c++)
+                    numero = rnd.Next(1, 75);
+                } while (YaSalio(numero, BINGO) == true);
+                BINGO.Add(numero);
+                if (numero <= 15)
                 {
-                    int d = Carton[f, c].GetHashCode();
-                    if (YaSalio(d, N) == true && MenuCarton(f, c, Tipo) == true)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-                    Console.Write(String.Format("{0}\t", Carton[f, c]));
+                    Console.WriteLine("En la columna de la B, Numero: " + numero);
                 }
-
-                Console.Write(Environment.NewLine + Environment.NewLine);
-               
-            }
+                else if (numero >= 16 && numero <= 30)
+                {
+                    Console.WriteLine("En la columna de la I, Numero: " + numero);
+                }
+                else if (numero >= 31 && numero <= 45)
+                {
+                    Console.WriteLine("En la columna de la N, Numero: " + numero);
+                }
+                else if (numero >= 46 && numero <= 60)
+                {
+                    Console.WriteLine("En la columna de la G, Numero: " + numero);
+                }
+                else
+                {
+                    Console.WriteLine("En la columna de la O, Numero: " + numero);
+                }
+            
+           
         }
-
+        
         public static void TextoMenu()
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Bienvenido al BINGO!");
-            Console.WriteLine("1.Juego Clasico (Carton LLeno)");
-            Console.WriteLine("2.Juego 4 Esquinas");
+            Console.WriteLine("Modos de juego");
+            Console.WriteLine("1.Juego 4 Esquinas");
+            Console.WriteLine("2.Juego H");
             Console.WriteLine("3.Juego X");
-            Console.WriteLine("4.Juego H");
-            Console.WriteLine("5.Juego O");
+            Console.WriteLine("4.Juego O");
+            Console.WriteLine("5.Juego Clasico (Carton LLeno)");
             Console.WriteLine("Introduzca un Numero:");
         }
 
-        static void Main(string[] args)
+        public static void Menu()
         {
-            Jugadores();
-            for (int i = 0; i <= 55; i++)
+            int num = 1;
+
+            using (WcfServicio.WCFBingoClient WCFInstancia = new WcfServicio.WCFBingoClient())
             {
-                NumeroSale();
+                var ejemplo = WCFInstancia.MENU(num);
+                var mensaje = ejemplo.mensaje;
+                Console.WriteLine(mensaje);
+                Console.ReadLine();
             }
-            Validaciones.Revision(1);
-            //Imprimir();
+
+            Jugadores();
+
+            int Tipo = 0;
+            bool esNumero = true;
+            string TipoJuego = " ";
+            do
+            {
+                TextoMenu();
+                Console.WriteLine("Seleccione el modo de juego:");
+                TipoJuego = Console.ReadLine();
+                esNumero = int.TryParse(TipoJuego, out Tipo);
+            } while (!esNumero);
+            Tipo = System.Convert.ToInt32(TipoJuego);
+
+            for (int i = 0; i <= 70; i++)
+            {
+              
+                NumeroSale();
+                Validaciones.Revision(Tipo);
+                if (EsGanador == true)
+                {
+                    Console.ReadLine();
+                    return;
+                }
+            }
+
             Console.ReadLine();
-            //Menu();
+
+        }
+    
+    static void Main(string[] args)
+        {
+
+            Menu();
+         
         }
         public override string ToString()
         {

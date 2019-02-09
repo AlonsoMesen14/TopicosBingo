@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -14,16 +15,30 @@ namespace WcfBingo
     {
 
         [OperationContract]
-        string GetData(int value);
+        Menu MENU(int opcion);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
+        ReglasDeJuego ReglasDeJuego();
+        
         // TODO: agregue aquí sus operaciones de servicio
     }
 
 
     // Utilice un contrato de datos, como se ilustra en el ejemplo siguiente, para agregar tipos compuestos a las operaciones de servicio.
+    [DataContract]
+    public class Menu
+    {
+        [DataMember]
+        public string mensaje { get; set; }
+    }
+
+    [DataContract]
+    public class ReglasDeJuego
+    {
+        [DataMember]
+        public string MensajeInstrucciones { get; set; }
+    }
+
     [DataContract]
     public class CompositeType
     {
