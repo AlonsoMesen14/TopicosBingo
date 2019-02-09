@@ -38,15 +38,6 @@ namespace WcfBingo
             throw new Exception("Error");
         }
 
-        public ReglasDeJuego ReglasDeJuego()
-        {
-            return new ReglasDeJuego() { MensajeInstrucciones = "Bienvenido al Bingo \n" +
-                                                                "Instrucciones: \n" +
-                                                                "1) Debe elegir la cantidad de jugadores por partida \n" +
-                                                                "2) Debe indicar el nombre de cada jugador \n" +
-                                                                "3) Debe indicar la cantidad de cartones por jugador \n" +
-                                                                "4) Debe seleccionar el modo de juego \n\n" };
-            throw new Exception("Error");
-        }
+       
     }
 }

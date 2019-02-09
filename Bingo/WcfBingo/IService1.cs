@@ -17,8 +17,7 @@ namespace WcfBingo
         [OperationContract]
         Menu MENU(int opcion);
 
-        [OperationContract]
-        ReglasDeJuego ReglasDeJuego();
+        
         
         // TODO: agregue aquí sus operaciones de servicio
     }
